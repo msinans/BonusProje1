@@ -17,9 +17,17 @@ namespace BonusProje1
         {
             InitializeComponent();
         }
-        SqlConnection baglanti = new SqlConnection(@""); // Buradaki @ işareti bunun bir adres olduğunu programımıza bildirir.
+        SqlConnection baglanti = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=BonusOkul;Integrated Security=True"); // Buradaki @ işareti bunun bir adres olduğunu programımıza bildirir. Ya adresin başında @ işareti olacak ya da eğer gerekirse adres içinde \\ olacak 
+        public String numara;
         private void FrmOgrenciNotlar_Load(object sender, EventArgs e)
         {
+            SqlCommand komut = new SqlCommand("Select * From TblNotlar Where OGRID=@p1", baglanti);
+            komut.Parameters.AddWithValue("@p1", numara);
+            //this.Text = numara.ToString();
+            SqlDataAdapter da = new SqlDataAdapter(komut);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
 
         }
     }

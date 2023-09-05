@@ -48,7 +48,8 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dataGridView1);
             this.Name = "FrmOgrenciNotlar";
-            this.Text = "FrmOgrenciNotlar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Öğrenci Not Ekranı";
             this.Load += new System.EventHandler(this.FrmOgrenciNotlar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
